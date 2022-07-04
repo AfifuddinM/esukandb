@@ -16,6 +16,8 @@ if (!isset($_SESSION['username'])) {
     <li>user detail</li>
     <li>view equipment</li>
     <li>booking</li>
+    <li>no hello world</li>
+
   </ul>
 </div>
 </body>
