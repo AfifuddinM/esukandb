@@ -39,8 +39,8 @@ if (isset($_POST['book'])) {
       </div>
       <div class="dependent" style="display:flex ; flex-direction:column; width:30% ;margin-left:100px;">
         <p><b>Please insert A Dependent(Witness)</b></p>
-        dependentId:<input type="text" name="dependentid">
-        dependentUsername:<input type="text" name="dependentusername">
+        dependentId:<input type="text" name="dependentid" required>
+        dependentUsername:<input type="text" name="dependentusername" required>
       </div>
       <br><br><br><br><br><br>
       <hr>
@@ -60,7 +60,6 @@ if (isset($_POST['book'])) {
   <?php
 
   } else if ($booktype == 2) {
-    echo "you picked two!";
     $equipmentId = $_GET['id'];
     $q = "select * from equipment where equipmentid=$equipmentId";
     $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
@@ -82,8 +81,8 @@ if (isset($_POST['book'])) {
       </div>
       <div class="dependent" style="display:flex ; flex-direction:column; width:30% ;margin-left:100px;">
         <p><b>Please insert A Dependent(Witness)</b></p>
-        dependentId:<input type="text" name="dependentid">
-        dependentUsername:<input type="text" name="dependentusername">
+        dependentId:<input type="text" name="dependentid" required>
+        dependentUsername:<input type="text" name="dependentusername" required>
       </div>
       <br><br><br><br><br><br>
       <hr>
@@ -91,7 +90,7 @@ if (isset($_POST['book'])) {
       <div>
         Equipment ID:<input type="text" value="<?php echo $r['equipmentid']; ?>" placeholder="<?php echo $r['equipmentid']; ?>" name="equipmentid" readonly>
         Equipment Name:<input type="text" value="<?php echo $r['equipmentname']; ?>" placeholder="<?php echo $r['equipmentname']; ?>" readonly>
-        Quantity:<input type="number" min="0" max="<?PHP echo $r['equipmentstock']; ?>" name="qty">
+        Quantity:<input type="number" min="0" max="<?PHP echo $r['equipmentstock']; ?>" name="qty" required>
         Borrow Date:<input type="datetime-local" name="dateborrow">
         Return Date:<input type="datetime-local" name="datereturn">
         <br>
