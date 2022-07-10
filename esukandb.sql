@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.3.0-dev+20220709.4e08d2933b
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 13, 2022 at 04:31 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.28
+-- Host: localhost
+-- Generation Time: Jul 10, 2022 at 08:56 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -29,31 +28,29 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `booking` (
-  `booking_id` varchar(10) NOT NULL,
-  `booking_type` varchar(10) DEFAULT NULL,
-  `booking_date` varchar(10) DEFAULT NULL,
-  `booking_time` varchar(10) DEFAULT NULL,
+  `booking_id` int(10) NOT NULL,
+  `booking_type` int(10) DEFAULT NULL,
+  `booking_date` datetime(6) DEFAULT NULL,
   `user_id` varchar(10) DEFAULT NULL,
-  `date_return` varchar(10) DEFAULT NULL,
-  `date_borrow` varchar(10) DEFAULT NULL,
-  `type` varchar(10) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
-  `adminid` varchar(10) DEFAULT NULL,
-  `dependant_id` varchar(10) DEFAULT NULL
+  `date_return` datetime(6) DEFAULT NULL,
+  `date_borrow` datetime(6) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  `adminid` int(10) DEFAULT NULL,
+  `dependant_id` int(10) DEFAULT NULL,
+  `quantity` int(10) DEFAULT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `equipment_id` int(11) DEFAULT NULL,
+  `return_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `bookingdata`
+-- Dumping data for table `booking`
 --
 
-CREATE TABLE `bookingdata` (
-  `bookingid` varchar(10) DEFAULT NULL,
-  `equipmentid` varchar(10) DEFAULT NULL,
-  `qty` varchar(10) DEFAULT NULL,
-  `note` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `booking` (`booking_id`, `booking_type`, `booking_date`, `user_id`, `date_return`, `date_borrow`, `status`, `adminid`, `dependant_id`, `quantity`, `note`, `equipment_id`, `return_status`) VALUES
+(10, 1, '2022-07-08 16:09:00.000000', '20', NULL, NULL, 1, 1, 0, 1, 'x', 1, 1),
+(15, 2, NULL, '6', '2022-07-12 16:37:00.000000', '2022-07-09 16:37:00.000000', 2, 1, 3, 2, 'latihan karisma', 1, 0),
+(16, 2, NULL, '20', '2022-07-09 16:39:00.000000', '2022-07-09 16:39:00.000000', 1, 1, 2, 2, 'idunno man just book', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -76,11 +73,23 @@ CREATE TABLE `dependant` (
 --
 
 CREATE TABLE `equipment` (
-  `equipmentid` varchar(10) NOT NULL,
-  `equipmentname` varchar(10) DEFAULT NULL,
-  `equipmentstock` varchar(10) DEFAULT NULL,
-  `equipmentdesc` varchar(10) DEFAULT NULL
+  `equipmentid` int(10) NOT NULL,
+  `equipmentname` varchar(255) DEFAULT NULL,
+  `equipmentstock` int(10) DEFAULT NULL,
+  `equipmentdesc` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `equipment`
+--
+
+INSERT INTO `equipment` (`equipmentid`, `equipmentname`, `equipmentstock`, `equipmentdesc`) VALUES
+(1, 'football', 10, 'a round ball sized 5, used for playing football at the field'),
+(3, 'badminton racket', 25, 'for playing badminton'),
+(5, 'rugby ball', 12, 'a egg shape ball to play rugby'),
+(13, 'body guard', 5, 'a vest guard used in combat sport to protect the upper body'),
+(15, 'tennis balls', 1, 'sd'),
+(16, 'ababab', 1, '1123123');
 
 -- --------------------------------------------------------
 
@@ -113,12 +122,10 @@ CREATE TABLE `user` (
   `user_id` int(4) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(10) NOT NULL,
-  `name` varchar(50) NOT NULL,
   `gender` int(2) NOT NULL,
   `address` varchar(100) NOT NULL,
   `telephone` varchar(10) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `picture` varchar(100) NOT NULL,
   `level_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,14 +133,18 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `username`, `password`, `name`, `gender`, `address`, `telephone`, `email`, `picture`, `level_id`) VALUES
-(1, 'admin', 'a', 'Siti Nur', 2, 'No1, Jalan Bujang 12, Taman Lembah Bujang,  08400 Merbok, Sungai Petani, Kedah', '0195710562', 'sitinurbayaismail151@gmail.com', 'siti.PNG', 1),
-(2, 'ahmad', 'ahmad', 'Fatih Ayman', 1, 'No 7, Pulau Pinang', '0115454545', 'ahamd@yahoo.com', 'fatihayman.png', 2),
-(3, 'fitry', 'fitry', 'Fitry Hamid', 1, 'No 9, Taman Harum, Perlis', '0178989895', '', 'fitryhamid.jpg', 2),
-(4, 'nadrah', 'nadrah', 'Nadrah Nazri', 2, 'No23, Jalan Selasih 3,\r\nTaman Bunga,\r\n81131 Johor Bahru, Johor', '0127897892', '', 'nadrah.png', 2),
-(5, 'tina', 'tina', 'Tina Sofea', 2, '12 Jalan Bahagia, Taman Sejahtera, Sungai Petani, Kedah', '0123456788', 'tina@gmail.com', 'tinasofea.png', 2),
-(6, 'azra', 'a', 'Azra', 2, 'No 4, Jalan Lagenda 11, Lagenda Heights, 08000 Sungai Petani, Kedah', '0111234567', 'azra@gmail.com', 'azra.PNG', 2),
-(7, '', '2', '', 0, 'azra', '', '', '', 0);
+INSERT INTO `user` (`user_id`, `username`, `password`, `gender`, `address`, `telephone`, `email`, `level_id`) VALUES
+(1, 'admin', 'a', 2, 'No1, Jalan Bujang 12, Taman Lembah Bujang,  08400 Merbok, Sungai Petani, Kedah', '0195710562', 'sitinurbayaismail151@gmail.com', 1),
+(2, 'ahmad', 'ahmad', 1, 'No 7, Pulau Pinang', '0115454545', 'ahamd@yahoo.com', 2),
+(3, 'fitry', 'fitry', 1, 'No 9, Taman Harum, Perlis', '0178989895', '', 2),
+(4, 'nadrah', 'nadrah', 2, 'No23, Jalan Selasih 3,\r\nTaman Bunga,\r\n81131 Johor Bahru, Johor', '0127897892', '', 2),
+(5, 'tina', 'tina', 2, '12 Jalan Bahagia, Taman Sejahtera, Sungai Petani, Kedah', '0123456788', 'tina@gmail.com', 2),
+(6, 'azra', 'a', 2, 'No 4, Jalan Lagenda 11, Lagenda Heights, 08000 Sungai Petani, Kedah', '0111234567', 'azra@gmail.com', 2),
+(17, 'ammar', '123', 1, 'Masria', '12345', 'blabla@gmail.com', 2),
+(18, 'loli', '123', 1, 'malinja', '0123456789', 'afif@yahoo.com', 2),
+(20, 'buggy', '123', 1, 'malinja', '0123456789', 'afif@yahoo.com', 2),
+(21, 'shukran', '123', 1, 'malinja', '0123456789', 'afif@yahoo.com', 2),
+(24, 'afifuddin', '123', 2, 'taman suria 2,06000,jitra,kedah', '0195898902', 'afifuddin@gamil.com', 1);
 
 --
 -- Indexes for dumped tables
@@ -169,12 +180,27 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `equipment`
+--
+ALTER TABLE `equipment`
+  MODIFY `equipmentid` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
