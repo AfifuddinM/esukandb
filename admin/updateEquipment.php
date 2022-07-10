@@ -1,5 +1,7 @@
 <?php
 include('../include/dbconn.php');
+include("../session.php");
+session_start();
 //navbar
 include('../include/navbarAdmin.php');
 $id = $_GET['id'];

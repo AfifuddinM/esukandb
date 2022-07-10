@@ -28,7 +28,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-user-circle-o" aria-hidden="true"></i><br>Manage<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Manage Admin Account</a></li>
+              <li><a href="./updateAdmin.php">Manage Admin Account</a></li>
               <li><a href="./viewUser.php">Manage User Account</a></li>
             </ul>
           </li>
