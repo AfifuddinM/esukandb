@@ -130,7 +130,7 @@ include("../include/navbarAdmin.php")
     <th width="10%">Telephone</td>
     <th width="10%">email</td>
     <th width="27%">Address</td>
-    <th align="center" colspan="2">Action</td>
+    <th align="center">Action</td>
   </tr>
 
   <?php
@@ -154,7 +154,6 @@ include("../include/navbarAdmin.php")
       <td>&nbsp;<?php echo $row['telephone']; ?></td>
       <td>&nbsp;<?php echo $row['email']; ?></td>
       <td><?php echo ucwords(strtolower($row['address'])); ?></td>
-      <td width="5%"><a class="one" href="user.php?site=01_02&user=<?php echo $row['user_id'] ?>">Detail</a></td>
       <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>" style="color:red ;">Delete</a></td>
       </tr>
     <?php
@@ -174,7 +173,6 @@ include("../include/navbarAdmin.php")
       <td>&nbsp;<?php echo $row['telephone']; ?></td>
       <td>&nbsp;<?php echo $row['email']; ?></td>
       <td><?php echo ucwords(strtolower($row['address'])); ?></td>
-      <td width="5%"><a class="one" href="user.php?site=01_02&user=<?php echo $row['user_id']; ?>">Detail</a></td>
       <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>" style="color:red ;">Delete</a></td>
       </tr>
   <?php

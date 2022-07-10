@@ -17,7 +17,7 @@ $r = mysqli_fetch_assoc($res);
     }
 </style>
 <h1>update Profile</h1>
-<form action="updateProfileProcess.php" method="POST">
+<form action="updateAdminProcess.php" method="POST">
     <table width=98% style="margin-top:5% ;">
         <tr>
             <td>Admin id:</td>
@@ -28,16 +28,26 @@ $r = mysqli_fetch_assoc($res);
             <td><input type="text" name="username" value="<?php echo $r['username']; ?>" readonly></td>
         </tr>
         <tr>
+            <td>Gender:</td>
+            <td><input type="text" name="Gender" value="<?php 
+            if($r['gender']==1){
+                echo "Male";
+            }else
+                echo "Female";
+            ?>" readonly></td>
+        </tr>
+        <tr>
             <td>Phone Number: </td>
             <td><input type="text" name="telephone" value="<?php echo $r['telephone']; ?>"></td>
         </tr>
+
         <tr>
             <td>Email Address:</td>
-            <td><input type="text" name="address" value="<?php echo $r['address']; ?>"></td>
+            <td><input type="text" name="email" value="<?php echo $r['email']; ?>"></td>
         </tr>
         <tr>
             <td>Home Address:</td>
-            <td><input type="text" maxlength="255" name="desc" value="<?php echo $r['address']; ?>" style="width:45% ; height:100px;"></td>
+            <td><input type="text" maxlength="255" name="address" value="<?php echo $r['address']; ?>" style="width:45% ; height:100px;"></td>
         </tr>
     </table>
     <button type="submit" name="updatebtn">Update Button</button>
