@@ -52,7 +52,7 @@ include("../include/navbarAdmin.php");
             <td>&nbsp;<?php echo ucwords(strtolower($row['quantity'])); ?></td>
             </td>
             <td width="7%" align="center"><a class="one" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
-            <td width="3%" align="center"><a class="one" href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
+            <td width="3%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
             </tr>
         <?php
             $color = "2";
@@ -68,7 +68,7 @@ include("../include/navbarAdmin.php");
             <td>&nbsp;<?php echo ucwords(strtolower($row['quantity'])); ?></td>
             </td>
             <td width="7%" align="center"><a class="one" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
-            <td width="3%" align="center"><a class="one" href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
+            <td width="3%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
             </tr>
     <?php
             $color = "1";
@@ -88,3 +88,12 @@ include("../include/navbarAdmin.php");
     </tr>
     </table>
 </div>
+
+</body>
+<script>
+    function confirmationDelete(anchor) {
+        var conf = confirm('Are you sure want to delete this record?');
+        if (conf)
+            window.location = anchor.attr("href");
+    }
+</script>

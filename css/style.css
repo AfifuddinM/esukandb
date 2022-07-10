@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 body {
   margin: 0;
   height: 100%;
@@ -80,21 +81,27 @@ input {
   left: 0;
   position: absolute;
 }
+
 .left label {
   color: #e3e3e3;
 }
+
 .left input {
   border-bottom: 1px solid #e3e3e3;
   color: #e3e3e3;
 }
-.left input:focus, .left input:active {
+
+.left input:focus,
+.left input:active {
   border-color: #03A9F4;
   color: #03A9F4;
 }
+
 .left input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #2C3034 inset;
   -webkit-text-fill-color: #e3e3e3;
 }
+
 .left a {
   color: #03A9F4;
 }
@@ -107,15 +114,20 @@ input {
   right: 0;
   position: absolute;
 }
+
 .right label {
   color: #212121;
 }
+
 .right input {
   border-bottom: 1px solid #212121;
 }
-.right input:focus, .right input:active {
+
+.right input:focus,
+.right input:active {
   border-color: #673AB7;
 }
+
 .right input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px #f9f9f9 inset;
   -webkit-text-fill-color: #212121;
@@ -148,6 +160,7 @@ input {
 .form-element {
   margin: 1.6em 0;
 }
+
 .form-element.form-submit {
   margin: 1.6em 0 0;
 }
@@ -169,8 +182,10 @@ input {
   position: relative;
 }
 
-.checkbox:focus, .checkbox:checked:focus,
-.checkbox:active, .checkbox:checked:active {
+.checkbox:focus,
+.checkbox:checked:focus,
+.checkbox:active,
+.checkbox:checked:active {
   border-color: #03A9F4;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -196,6 +211,7 @@ input {
   align-items: center;
   color: #e3e3e3;
 }
+
 .form-checkbox label {
   margin: 0 6px 0;
   font-size: 0.72em;
@@ -217,41 +233,63 @@ button {
   outline: 0;
   transition: all 0.25s;
 }
+
 button.signup {
   background: #03A9F4;
 }
+
 button.login {
   background: #673AB7;
 }
+
 button.off {
   background: none;
   box-shadow: none;
   margin: 0;
 }
+
 button.off.signup {
   color: #03A9F4;
 }
+
 button.off.login {
   color: #673AB7;
 }
 
-button:focus, button:active, button:hover {
+button:focus,
+button:active,
+button:hover {
   box-shadow: 0 4px 7px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
-button:focus.signup, button:active.signup, button:hover.signup {
+
+button:focus.signup,
+button:active.signup,
+button:hover.signup {
   background: #0288D1;
 }
-button:focus.login, button:active.login, button:hover.login {
+
+button:focus.login,
+button:active.login,
+button:hover.login {
   background: #512DA8;
 }
-button:focus.off, button:active.off, button:hover.off {
+
+button:focus.off,
+button:active.off,
+button:hover.off {
   box-shadow: none;
 }
-button:focus.off.signup, button:active.off.signup, button:hover.off.signup {
+
+button:focus.off.signup,
+button:active.off.signup,
+button:hover.off.signup {
   color: #03A9F4;
   background: #212121;
 }
-button:focus.off.login, button:active.off.login, button:hover.off.login {
+
+button:focus.off.login,
+button:active.off.login,
+button:hover.off.login {
   color: #512DA8;
   background: #e3e3e3;
 }
@@ -262,7 +300,8 @@ button:focus.off.login, button:active.off.login, button:hover.off.login {
     margin-left: 20%;
   }
 
-  .signup-info, .login-info {
+  .signup-info,
+  .login-info {
     display: none;
   }
 }

@@ -110,7 +110,7 @@ include("../include/navbarAdmin.php")
   <h3>Users' Personal Data</h3>
   <?php
   $username = $_SESSION['username'];
-  $query = "SELECT * FROM user where username != '$username'";
+  $query = "SELECT * FROM user where level_id !=1";
   $result = mysqli_query($dbconn, $query) or die("Error: " . mysqli_error($dbconn));
   $numrow = mysqli_num_rows($result);
 
@@ -153,7 +153,7 @@ include("../include/navbarAdmin.php")
       <td>&nbsp;<?php echo $row['email']; ?></td>
       <td><?php echo ucwords(strtolower($row['address'])); ?></td>
       <td width="5%"><a class="one" href="user.php?site=01_02&user=<?php echo $row['username']; ?>">Detail</a></td>
-      <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="#.php?id=<?php echo $row['username']; ?>" style="color:red ;">Delete</a></td>
+      <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['username']; ?>" style="color:red ;">Delete</a></td>
       </tr>
     <?php
       $color = "2";
@@ -172,7 +172,7 @@ include("../include/navbarAdmin.php")
       <td>&nbsp;<?php echo $row['email']; ?></td>
       <td><?php echo ucwords(strtolower($row['address'])); ?></td>
       <td width="5%"><a class="one" href="user.php?site=01_02&user=<?php echo $row['username']; ?>">Detail</a></td>
-      <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="#.php?id=<?php echo $row['username']; ?>" style="color:red ;">Delete</a></td>
+      <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['username']; ?>" style="color:red ;">Delete</a></td>
       </tr>
   <?php
       $color = "1";
@@ -199,5 +199,12 @@ include("../include/navbarAdmin.php")
   </div>
 
 </body>
+<script>
+  function confirmationDelete(anchor) {
+    var conf = confirm('Are you sure want to delete this record?');
+    if (conf)
+      window.location = anchor.attr("href");
+  }
+</script>
 
 </html>
