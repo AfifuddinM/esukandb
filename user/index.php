@@ -36,7 +36,6 @@ if (!isset($_SESSION['username'])) {
     $rs = mysqli_fetch_assoc($r3);
     $equipmentN = $rs['equipmentname'];
     echo '<div style="border:1px solid black ; ">';
-
     if ($status == 1) {
       if ($bookingType == 1) { //if he accepted booking is On The Go
         echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
@@ -49,10 +48,9 @@ if (!isset($_SESSION['username'])) {
         <br>
         Borrow Date:<input type="text" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
-
-        echo "<br><b>Your Booking Application Has Been Approved!!:</b>";
-        echo '<form action="bookEquipment.php" method="post">
+        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        <br><b>Your Booking Application Has Been Approved!!:</b>
+        <form action="claimRetrieve.php" method="post">
         <button type="submit" name= "retrieve">Claim Equipment</button>
         <button type="submit" name= "return">Return Equipment</button>
       </form>';
@@ -69,10 +67,9 @@ if (!isset($_SESSION['username'])) {
         <br>
         Borrow Date:<input type="text" name="dateborrow" value=" ' . $returnDate . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
-
-        echo "<br><b>Your Booking Application Has Been Approved!!:</b>";
-        echo '<form action="bookEquipment.php" method="post">
+        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        <br><b>Your Booking Application Has Been Approved!!:</b>
+        <form action="claimRetrieve.php" method="post">
         <button type="submit" name= "retrieve">Claim Equipment</button>
         <button type="submit" name= "return">Return Equipment</button>
       </form>';
@@ -91,11 +88,9 @@ if (!isset($_SESSION['username'])) {
       Return Date:<input type="text" name="dateborrow" value=" ' . $returnDate . '" readonly>
       <br>
       Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
-      ';
-
-      echo "<br><b>Unfotunately your booking has been rejected! Because:</b>" . "<b>" . $decline . "</b>";
-      echo ' <br> <b>If you wish to make another booking click the button below!</b>';
-      echo '<form action="bookEquipment.php" method="post">
+      <br><b>Unfotunately your booking has been rejected! Because:</b>" . "<b>" . $decline . "</b>
+      <br> <b>If you wish to make another booking click the button below!</b>
+      <form action="bookEquipment.php" method="post">
       <button type="submit">Book an Equipment</button>
     </form>';
     } else {
