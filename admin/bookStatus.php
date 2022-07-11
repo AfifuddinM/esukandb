@@ -10,8 +10,8 @@ $adminid = $rr['user_id'];
 if (isset($_POST['book'])) {
     $status = $_POST['status'];
     $bookingId = $_GET['id'];
+    $reject = $_POST['reject'];
     if ($status == 1) {
-        echo "DITERIMA";
         $q = "UPDATE booking SET adminid = $adminid, status=1 WHERE booking_id = $bookingId";
         $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
         if ($res) {
@@ -27,8 +27,7 @@ if (isset($_POST['book'])) {
         }
         //status=1 accept 2=reject
     } else if ($status == 2) {
-        echo "DITolak";
-        $q = "UPDATE booking SET adminid = $adminid, status=2 WHERE booking_id = $bookingId";
+        $q = "UPDATE booking SET adminid = $adminid, status=2,decline_reason = '$reject'  WHERE booking_id = $bookingId";
         $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
         if ($res) {
             echo "<script>

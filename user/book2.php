@@ -16,8 +16,8 @@ if (isset($_POST['bookSubmit'])) {
   $data = mysqli_fetch_assoc($r2);
   $count =  $data['total'];
   if ($count < 1) {
-    $q3 = "insert into booking (user_id,dependant_id,equipment_id,quantity,note,date_borrow,date_return,status,booking_type,return_status)
-  values('$userid','$dependentid','$equipmentid','$qty','$note','$dateborrow','$datereturn','3','2','0')";
+    $q3 = "insert into booking (user_id,dependant_id,equipment_id,quantity,note,date_borrow,date_return,status,booking_type,return_status,user_retrieve)
+  values('$userid','$dependentid','$equipmentid','$qty','$note','$dateborrow','$datereturn','3','2','0','0')";
     $r3 = mysqli_query($dbconn, $q3);
     if ($r3) {
       echo "<script>

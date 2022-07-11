@@ -68,8 +68,9 @@ include("../include/navbarAdmin.php");
             <br>
             Return Date:<input type="text" name="datereturn" value="<?PHP echo $r['date_return']; ?>" readonly>
             <br>
-            Purpose of Booking<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="<?PHP echo $r['note']; ?>" readonly>
+            Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="<?PHP echo $r['note']; ?>" readonly>
             <br>
+            Rejection Note:<input type="text" maxlength="255" name="reject" style="width:20% ; height:100px;">
             <br><br>
             <select name="status" style="margin-right:5px; padding-right:50px;">
                 <option value=1>Accept </option>

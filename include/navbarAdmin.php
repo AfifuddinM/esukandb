@@ -41,13 +41,6 @@
           </li>
           <li><a href="searchEquipment.php"><i class="fa fa-search" aria-hidden="true"></i><br>Search Equipment</a></li>
           <li><a href="../admin/addEquipment.php"><i class="fa fa-plus" aria-hidden="true"></i><br>Add Equipment</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"><i class="fa fa-file" aria-hidden="true"></i><br>Report<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Report A</a></li>
-              <li><a href="#">Report B</a></li>
-            </ul>
-          </li>
           <li><a href="../logout.php"><i class="fa fa-sign-out"></i><br>Logout</a></li>
         </ul>
       </div>
