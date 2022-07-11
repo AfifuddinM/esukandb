@@ -31,7 +31,8 @@ if (isset($_POST['bookSubmit'])) {
       window.location.href='index.php';
       </script>";
     }
-    /*
+  }
+  /*
     if ($r3) {
       $q4 = "update equipment set equipmentstock = equipmentstock - 1 where equipmentid = $equipmentid";
       $r4 = mysqli_query($dbconn, $q4);
@@ -50,5 +51,4 @@ if (isset($_POST['bookSubmit'])) {
   }
 }
 */
-  }
 }
