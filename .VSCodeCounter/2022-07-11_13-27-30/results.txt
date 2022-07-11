@@ -1,0 +1,82 @@
+Date : 2022-07-11 13:27:30
+Directory : c:\xampp\htdocs\esukandb
+Total : 45 files,  3909 codes, 205 comments, 397 blanks, all 4511 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| PHP        |         36 |      2,265 |         68 |        237 |      2,570 |
+| CSS        |          4 |      1,108 |          2 |         64 |      1,174 |
+| HTML       |          3 |        318 |         44 |         33 |        395 |
+| JavaScript |          1 |        122 |         21 |         22 |        165 |
+| SQL        |          1 |         96 |         70 |         41 |        207 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                      | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                         |         45 |      3,909 |        205 |        397 |      4,511 |
+| admin                                                     |         18 |      1,507 |         22 |        103 |      1,632 |
+| admin\css                                                 |          1 |        318 |          1 |          6 |        325 |
+| css                                                       |          1 |        260 |          0 |         47 |        307 |
+| dashboard                                                 |          3 |        494 |          0 |         51 |        545 |
+| dashboard\css                                             |          1 |        212 |          0 |          5 |        217 |
+| include                                                   |          3 |         84 |          1 |          4 |         89 |
+| js                                                        |          1 |        122 |         21 |         22 |        165 |
+| user                                                      |         12 |      1,102 |         28 |         97 |      1,227 |
+| user\css                                                  |          1 |        318 |          1 |          6 |        325 |
++-----------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                  | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\xampp\htdocs\esukandb\admin\addEquipment.php           | PHP        |         21 |          1 |          5 |         27 |
+| c:\xampp\htdocs\esukandb\admin\bookStatus.php             | PHP        |         44 |          1 |          1 |         46 |
+| c:\xampp\htdocs\esukandb\admin\css\style.css              | CSS        |        318 |          1 |          6 |        325 |
+| c:\xampp\htdocs\esukandb\admin\deleteBooking.php          | PHP        |         19 |          1 |          2 |         22 |
+| c:\xampp\htdocs\esukandb\admin\deleteEquipment.php        | PHP        |         13 |          1 |          1 |         15 |
+| c:\xampp\htdocs\esukandb\admin\deleteUser.php             | PHP        |         18 |          1 |          2 |         21 |
+| c:\xampp\htdocs\esukandb\admin\index.php                  | PHP        |        309 |          0 |         12 |        321 |
+| c:\xampp\htdocs\esukandb\admin\managebooking.php          | PHP        |         92 |          0 |          7 |         99 |
+| c:\xampp\htdocs\esukandb\admin\saveEquipment.php          | PHP        |         16 |          0 |          2 |         18 |
+| c:\xampp\htdocs\esukandb\admin\search.php                 | PHP        |         92 |          0 |          9 |        101 |
+| c:\xampp\htdocs\esukandb\admin\searchEquipment.php        | PHP        |         70 |          1 |         10 |         81 |
+| c:\xampp\htdocs\esukandb\admin\updateAdmin.php            | PHP        |         53 |          2 |          2 |         57 |
+| c:\xampp\htdocs\esukandb\admin\updateAdminProcess.php     | PHP        |         29 |          0 |          1 |         30 |
+| c:\xampp\htdocs\esukandb\admin\updateEquipment.php        | PHP        |         41 |          2 |          1 |         44 |
+| c:\xampp\htdocs\esukandb\admin\updateEquipmentProcess.php | PHP        |         28 |          0 |          1 |         29 |
+| c:\xampp\htdocs\esukandb\admin\verifyBooking.php          | PHP        |         76 |          3 |          4 |         83 |
+| c:\xampp\htdocs\esukandb\admin\viewEquipment.php          | PHP        |         93 |          1 |          8 |        102 |
+| c:\xampp\htdocs\esukandb\admin\viewUser.php               | PHP        |        175 |          7 |         29 |        211 |
+| c:\xampp\htdocs\esukandb\css\style.css                    | CSS        |        260 |          0 |         47 |        307 |
+| c:\xampp\htdocs\esukandb\dashboard\css\style.css          | CSS        |        212 |          0 |          5 |        217 |
+| c:\xampp\htdocs\esukandb\dashboard\index copy.html        | HTML       |        141 |          0 |         23 |        164 |
+| c:\xampp\htdocs\esukandb\dashboard\index.php              | PHP        |        141 |          0 |         23 |        164 |
+| c:\xampp\htdocs\esukandb\db_add_user.php                  | PHP        |         20 |          3 |          5 |         28 |
+| c:\xampp\htdocs\esukandb\esukandb.sql                     | SQL        |         96 |         70 |         41 |        207 |
+| c:\xampp\htdocs\esukandb\include\dbconn.php               | PHP        |          7 |          1 |          0 |          8 |
+| c:\xampp\htdocs\esukandb\include\navbarAdmin.php          | PHP        |         45 |          0 |          3 |         48 |
+| c:\xampp\htdocs\esukandb\include\navbarUser.php           | PHP        |         32 |          0 |          1 |         33 |
+| c:\xampp\htdocs\esukandb\index.html                       | HTML       |         90 |         22 |          4 |        116 |
+| c:\xampp\htdocs\esukandb\indexwrong.html                  | HTML       |         87 |         22 |          6 |        115 |
+| c:\xampp\htdocs\esukandb\js\script.js                     | JavaScript |        122 |         21 |         22 |        165 |
+| c:\xampp\htdocs\esukandb\logout.php                       | PHP        |          7 |          4 |          7 |         18 |
+| c:\xampp\htdocs\esukandb\process.php                      | PHP        |         31 |          9 |          6 |         46 |
+| c:\xampp\htdocs\esukandb\session.php                      | PHP        |          9 |          3 |          4 |         16 |
+| c:\xampp\htdocs\esukandb\user\book1.php                   | PHP        |         32 |         22 |          1 |         55 |
+| c:\xampp\htdocs\esukandb\user\book2.php                   | PHP        |         33 |          1 |          1 |         35 |
+| c:\xampp\htdocs\esukandb\user\bookEquipment.php           | PHP        |         95 |          0 |          9 |        104 |
+| c:\xampp\htdocs\esukandb\user\booking.php                 | PHP        |         99 |          0 |          7 |        106 |
+| c:\xampp\htdocs\esukandb\user\claimRetrieve.php           | PHP        |         24 |          0 |          2 |         26 |
+| c:\xampp\htdocs\esukandb\user\css\style.css               | CSS        |        318 |          1 |          6 |        325 |
+| c:\xampp\htdocs\esukandb\user\index.php                   | PHP        |        160 |          0 |          7 |        167 |
+| c:\xampp\htdocs\esukandb\user\search.php                  | PHP        |        110 |          0 |         10 |        120 |
+| c:\xampp\htdocs\esukandb\user\searchEquipment.php         | PHP        |         70 |          1 |         10 |         81 |
+| c:\xampp\htdocs\esukandb\user\updateUserProcess.php       | PHP        |         29 |          0 |          1 |         30 |
+| c:\xampp\htdocs\esukandb\user\viewEquipment.php           | PHP        |         79 |          1 |         41 |        121 |
+| c:\xampp\htdocs\esukandb\user\viewUser.php                | PHP        |         53 |          2 |          2 |         57 |
+| Total                                                     |            |      3,909 |        205 |        397 |      4,511 |
++-----------------------------------------------------------+------------+------------+------------+------------+------------+

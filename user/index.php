@@ -23,6 +23,7 @@ if (!isset($_SESSION['username'])) {
   $r2 = mysqli_query($dbconn, $q2) or die(mysqli_error($dbconn));
   $rr = mysqli_fetch_assoc($r2);
   if ($rr) {
+    $bookingId = $rr['booking_id'];
     $status = $rr['status'];
     $equipmentId = $rr['equipment_id'];
     $quantity = $rr['quantity'];
@@ -38,8 +39,9 @@ if (!isset($_SESSION['username'])) {
     echo '<div style="border:1px solid black ; ">';
     if ($status == 1) {
       if ($bookingType == 1) { //if he accepted booking is On The Go
-        echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
-        echo '<br>
+        if ($rr['user_retrieve'] == 0) {
+          echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+          echo '<br>
          Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
         <br>
         Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
@@ -50,10 +52,27 @@ if (!isset($_SESSION['username'])) {
         <br>
         Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
         <br><b>Your Booking Application Has Been Approved!!:</b>
-        <form action="claimRetrieve.php" method="post">
+        <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
         <button type="submit" name= "retrieve">Claim Equipment</button>
         <button type="submit" name= "return">Return Equipment</button>
       </form>';
+        } else { //if user already took the equipment
+          echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+          echo '<br>
+         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+        <br>
+        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        <br>
+        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        <br>
+        Borrow Date:<input type="text" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
+        <br>
+        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        <br><b>Your Booking Application Has Been Approved!!:</b>
+        <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
+        <button type="submit" name= "return">Return Equipment</button>
+      </form>';
+        }
       } else { //if he accepted booking is durational
         echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
         echo '<br>
@@ -127,6 +146,14 @@ if (!isset($_SESSION['username'])) {
         echo "<br><b>Your Booking Application Is Still Waiting Please Wait YA!:</b>";
       }
     }
+  } else {
+    echo '<div style="border:1px solid black;">
+    <h3 style="color:red;">uh oh seems like you havent made any booking request yet! Lets Fix That</h3>
+    <h3>Click The button below to start book a sport equipment</h3>
+    <form action="bookEquipment.php" method="post">
+      <button type="submit">Book Equipment</button>
+    </form>
+  </div>';
   }
   ?>
 </div>
