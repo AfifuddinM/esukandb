@@ -11,34 +11,32 @@ $r = mysqli_fetch_assoc($res);
 $stock = $r['equipmentstock'];
 //creating a detail table for a specific equipment
 ?>
-<style>
-    table {
-        border: 1px solid black;
-        margin-right: 20px;
-    }
-</style>
-<h1>update Equipment</h1>
-<form action="updateEquipmentProcess.php" method="POST">
-    <table width=98% style="margin-top:5% ;">
-        <tr>
-            <td>equipment id:</td>
-            <td><input type="text" name="equipmentid" value="<?php echo $id; ?>" readonly></td>
-        </tr>
-        <tr>
-            <td>equipment name:</td>
-            <td><input type="text" name="equipmentname" value="<?php echo $r['equipmentname']; ?>" readonly></td>
-        </tr>
-        <tr>
-            <td>equipment stock: </td>
-            <td><input type="number" name="stock" value="<?php echo $stock; ?>"></td>
-        </tr>
-        <tr>
-            <td>equipment description:</td>
-            <td><input type="text" maxlength="255" name="desc" value="<?php echo $r['equipmentdesc']; ?>" style="width:45% ; height:100px;"></td>
-        </tr>
-    </table>
-    <button type="submit" name="updatebtn">Update Button</button>
-</form>
+<br>
+<div style="margin-left: 5%; margin-right: 5%;">
+    <h1>update Equipment</h1>
+    <form action="updateEquipmentProcess.php" method="POST">
+        <table class="table" width=98% style="margin-top:5% ;">
+            <tr>
+                <td>equipment id:</td>
+                <td><input type="text" class="form-control" name="equipmentid" value="<?php echo $id; ?>" readonly></td>
+            </tr>
+            <tr>
+                <td>equipment name:</td>
+                <td><input type="text" class="form-control" name="equipmentname" value="<?php echo $r['equipmentname']; ?>" readonly></td>
+            </tr>
+            <tr>
+                <td>equipment stock: </td>
+                <td><input class="form-control" type="number" name="stock" value="<?php echo $stock; ?>"></td>
+            </tr>
+            <tr>
+                <td>equipment description:</td>
+                <td><input class="form-control" type="text" maxlength="255" name="desc" value="<?php echo $r['equipmentdesc']; ?>" style="width:100% ; height:100px;"></td>
+            </tr>
+        </table>
+        <button type="submit" class="btn btn-primary" name="updatebtn">Update Button</button>
+    </form>
+</div>
+
 <?php
 
 ?>

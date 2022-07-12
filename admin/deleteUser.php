@@ -2,8 +2,8 @@
 include('../include/dbconn.php');
 include("../session.php");
 session_start();
-$username = $_GET['id'];
-$query = " delete from user where username = '$username'";
+$userId = $_GET['id'];
+$query = " delete from user where user_id = '$userId'";
 $res = mysqli_query($dbconn, $query) or die(mysqli_error($dbconn));
 if ($res) {
     echo "<script>

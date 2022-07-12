@@ -8,11 +8,12 @@ if (!isset($_SESSION['username'])) {
 }
 
 ?>
-<?php include('../include/navbarUser.php') ?>
+<?php include('../include/newnavbarUser.php') ?>
 <!-- partial -->
-<div class="main">
-  <h1> E-Sukan Equipment Booking System</h1>
+<div class="main" style="margin-left: 5%; margin-right: 5%;">
+  <br>
   <h3>Welcome <?php echo $username; ?></h3>
+  <br>
   <?php
   $q1 = "select * from user where username = '$username'";
   $r1 = mysqli_query($dbconn, $q1) or die(mysqli_error($dbconn));
@@ -36,124 +37,160 @@ if (!isset($_SESSION['username'])) {
     $r3 = mysqli_query($dbconn, $q3) or die("Error: " . mysqli_error($dbconn));
     $rs = mysqli_fetch_assoc($r3);
     $equipmentN = $rs['equipmentname'];
-    echo '<div style="border:1px solid black ; ">';
+    echo '<table class="table">';
     if ($status == 1) {
       if ($bookingType == 1) { //if he accepted booking is On The Go
         if ($rr['user_retrieve'] == 0) {
-          echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+          echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
           echo '<br>
-         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+         Equipment ID:<input type="text" class="form-control"value="' . $equipmentId . '" readonly>
         <br>
-        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        Equipment Name:<input type="text"class="form-control" value="' . $equipmentN . '" readonly>
         <br>
-        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        Quantity:<input type="number" class="form-control"value="' . $quantity . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
+        Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        Purpose of Booking:<input type="text" maxlength="255" class="form-control"name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
         <br><b>Your Booking Application Has Been Approved!!:</b>
         <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
-        <button type="submit" name= "retrieve">Claim Equipment</button>
-        <button type="submit" name= "return">Return Equipment</button>
-      </form>';
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary" style="margin-right:10px;" name= "retrieve">Claim Equipment</button>
+        <button type="submit" class="btn btn-success" name= "return">Return Equipment</button>
+      </form>
+       </table>';
         } else { //if user already took the equipment
-          echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+          echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
           echo '<br>
-         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+         Equipment ID:<input type="text"class="form-control" value="' . $equipmentId . '" readonly>
         <br>
-        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        Equipment Name:<input type="text"class="form-control" value="' . $equipmentN . '" readonly>
         <br>
-        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        Quantity:<input type="number"class="form-control" value="' . $quantity . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
+        Borrow Date:<input type="text"class="form-control" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        Purpose of Booking:<input type="text" maxlength="255"class="form-control" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
         <br><b>Your Booking Application Has Been Approved!!:</b>
         <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
-        <button type="submit" name= "return">Return Equipment</button>
-      </form>';
+        <br>
+        <br>
+        <button type="submit" class="btn btn-success" name= "return">Return Equipment</button>
+      </form>
+      </table>';
         }
-      } else { //if he accepted booking is durational
-        echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
-        echo '<br>
-         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+      } else if ($bookingType == 2) { //if he accepted booking is durational
+
+        if ($rr['user_retrieve'] == 0) {
+          echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
+          echo '<br>
+         Equipment ID:<input type="text" class="form-control"value="' . $equipmentId . '" readonly>
         <br>
-        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        Equipment Name:<input type="text" class="form-control"value="' . $equipmentN . '" readonly>
         <br>
-        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        Quantity:<input type="number" class="form-control"value="' . $quantity . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $borrowDate . '" readonly>
+        Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $borrowDate . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $returnDate . '" readonly>
+        Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $returnDate . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+        Purpose of Booking:<input type="text" maxlength="255" class="form-control"name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
         <br><b>Your Booking Application Has Been Approved!!:</b>
-        <form action="claimRetrieve.php" method="post">
-        <button type="submit" name= "retrieve">Claim Equipment</button>
-        <button type="submit" name= "return">Return Equipment</button>
-      </form>';
+        <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary" style="margin-right:10px;" name= "retrieve">Claim Equipment</button>
+        <button type="submit" class="btn btn-success" name= "return">Return Equipment</button>
+      </form>
+      </table>';
+        } else {
+          echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
+          echo '<br>
+           Equipment ID:<input type="text" class="form-control"value="' . $equipmentId . '" readonly>
+          <br>
+          Equipment Name:<input type="text" class="form-control"value="' . $equipmentN . '" readonly>
+          <br>
+          Quantity:<input type="number" class="form-control"value="' . $quantity . '" readonly>
+          <br>
+          Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $borrowDate . '" readonly>
+          <br>
+          Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $returnDate . '" readonly>
+          <br>
+          Purpose of Booking:<input type="text" maxlength="255" class="form-control"name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+          <br><b>Your Booking Application Has Been Approved!!:</b>
+          <form action="claimRetrieve.php?id=' . $bookingId . '" method="post">
+          <br>
+          <br>
+          <button type="submit" class="btn btn-success" name= "return">Return Equipment</button>
+        </form>
+        </table>';
+        }
       }
     } else if ($status == 2) {
-      echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+      echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
       echo '<br>
-       Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+       Equipment ID:<input class="form-control" type="text" value="' . $equipmentId . '" readonly>
       <br>
-      Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+      Equipment Name:<input type="text"class="form-control" value="' . $equipmentN . '" readonly>
       <br>
-      Quantity:<input type="number" value="' . $quantity . '" readonly>
+      Quantity:<input type="number"class="form-control" value="' . $quantity . '" readonly>
       <br>
-      Borrow Date:<input type="text" name="dateborrow" value=" ' . $borrowDate . '" readonly>
+      Borrow Date:<input type="text"class="form-control" name="dateborrow" value=" ' . $borrowDate . '" readonly>
       <br>
-      Return Date:<input type="text" name="dateborrow" value=" ' . $returnDate . '" readonly>
+      Return Date:<input type="text"class="form-control" name="dateborrow" value=" ' . $returnDate . '" readonly>
       <br>
-      Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
+      Purpose of Booking:<input type="text" maxlength="255"class="form-control" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>
       <br><b>Unfotunately your booking has been rejected! Because:</b>" . "<b>" . $decline . "</b>
       <br> <b>If you wish to make another booking click the button below!</b>
       <form action="bookEquipment.php" method="post">
       <button type="submit">Book an Equipment</button>
-    </form>';
+    </form>
+    </table>';
     } else {
-      echo "Your booking is still pending";
       if ($bookingType == 1) { //if he pending booking is On The Go
-        echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+        echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
         echo '<br>
-         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+         Equipment ID:<input type="text" class="form-control"  value="' . $equipmentId . '" readonly>
         <br>
-        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        Equipment Name:<input type="text" class="form-control" value="' . $equipmentN . '" readonly>
         <br>
-        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        Quantity:<input type="number" class="form-control" value="' . $quantity . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
+        Borrow Date:<input type="text" class="form-control"name="dateborrow" value=" ' . $rr['booking_date'] . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
-
-        echo "<br><b>Your Booking Application Is Still Waiting Please Wait YA!:</b>";
+        Purpose of Booking:<input type="text" maxlength="255" class="form-control "name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
+        echo "<br><b>Your Booking Application Is Still Waiting Please Wait YA!:</b>
+        </table>";
       } else { //if he pending booking is durational
-        echo "<b>Booking ID:" . $rr['booking_id'] . "</b>";
+        echo "<h4><b>Booking ID:" . $rr['booking_id'] . "</b> </h4>";
         echo '<br>
-         Equipment ID:<input type="text" value="' . $equipmentId . '" readonly>
+         Equipment ID:<input type="text" class="form-control" value="' . $equipmentId . '" readonly>
         <br>
-        Equipment Name:<input type="text" value="' . $equipmentN . '" readonly>
+        Equipment Name:<input type="text" class="form-control" value="' . $equipmentN . '" readonly>
         <br>
-        Quantity:<input type="number" value="' . $quantity . '" readonly>
+        Quantity:<input type="number" class="form-control" value="' . $quantity . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $borrowDate . '" readonly>
+        Borrow Date:<input type="text" class="form-control" name="dateborrow" value=" ' . $borrowDate . '" readonly>
         <br>
-        Borrow Date:<input type="text" name="dateborrow" value=" ' . $returnDate . '" readonly>
+        Borrow Date:<input type="text" class="form-control" name="dateborrow" value=" ' . $returnDate . '" readonly>
         <br>
-        Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
+        Purpose of Booking:<input type="text" maxlength="255" class="form-control" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
 
-        echo "<br><b>Your Booking Application Is Still Waiting Please Wait YA!:</b>";
+        echo "<br><b>Your Booking Application Is Still Waiting Please Wait YA!:</b>
+        </table>";
       }
     }
   } else {
-    echo '<div style="border:1px solid black;">
-    <h3 style="color:red;">uh oh seems like you havent made any booking request yet! Lets Fix That</h3>
-    <h3>Click The button below to start book a sport equipment</h3>
-    <form action="bookEquipment.php" method="post">
-      <button type="submit">Book Equipment</button>
-    </form>
-  </div>';
+    echo '<table class="table">
+    <div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">Uh-Oh!! Seems like you havent made any booking request yet! Lets Fix That</h5>
+    <p class="card-text">Click The button below to start book a sport equipment</p>
+    <a href="bookEquipment.php" class="btn btn-danger">Book Equipment</a>
+  </div>
+</div>
+    </table>';
   }
   ?>
 </div>

@@ -14,7 +14,8 @@ include("../include/newnavbar.php");
     <title>Manage Booking</title>
 </head>
 
-<div>
+<div style="margin-left: 5%; margin-right: 5%;">
+    <br>
     <h1>Booking Applicant Info</h1>
     <?php
     $q1 = "select * from booking where booking_id= $bookingId";
@@ -43,40 +44,42 @@ include("../include/newnavbar.php");
     $adminid = $rr5['user_id'];
 
     ?>
+    <br>
     <form action="bookStatus.php?id=<?php echo $bookingId; ?>" method="post">
         <div style="display:flex ; flex-direction:column; float:left; margin-right:20px;">
-            User ID:<input type="text" value="<?php echo $r['user_id']; ?>" name="userid" readonly>
-            Username:<input type="text" value="<?php echo $r3['username']; ?>" readonly>
-            Telephone Number:<input type="text" value="<?php echo $r3['telephone']; ?>" readonly>
-            Email:<input type="text" value="<?php echo $r3['email']; ?>" readonly>
-            Address:<input type="text" value="<?php echo $r3['address']; ?>" readonly>
+            User ID:<input class="form-control" type="text" value="<?php echo $r['user_id']; ?>" name="userid" readonly>
+            Username:<input class="form-control" type="text" value="<?php echo $r3['username']; ?>" readonly>
+            Telephone Number:<input class="form-control" type="text" value="<?php echo $r3['telephone']; ?>" readonly>
+            Email:<input class="form-control" type="text" value="<?php echo $r3['email']; ?>" readonly>
+            Address:<input type="text" class="form-control" value="<?php echo $r3['address']; ?>" readonly>
         </div>
         <div class="dependent" style="display:flex ; flex-direction:column; width:30% ;margin-left:100px;">
             <p><b>Please insert A Dependent(Witness)</b></p>
-            dependentId:<input type="text" name="dependentid" value="<?PHP echo $dependantid; ?>" readonly>
-            dependentUsername:<input type="text" name="dependentusername" value="<?PHP echo $dependantName ?>">
+            dependentId:<input type="text" class="form-control" name="dependentid" value="<?PHP echo $dependantid; ?>" readonly>
+            dependentUsername:<input type="text" class="form-control" name="dependentusername" value="<?PHP echo $dependantName ?>" readonly>
         </div>
         <br><br><br><br><br><br>
         <hr>
         <h1>Booking Equipment Info</h1>
         <div>
-            Equipment ID:<input type="text" value="<?php echo $r2['equipmentid']; ?>" name="equipmentid" readonly>
-            Equipment Name:<input type="text" value="<?php echo $r2['equipmentname']; ?>" readonly>
-            Quantity:<input type="number" value="<?PHP echo $r['quantity']; ?>" name="qty" readonly>
+            Equipment ID:<input type="text" class="form-control" value="<?php echo $r2['equipmentid']; ?>" name="equipmentid" readonly>
+            Equipment Name:<input type="text" class="form-control" value="<?php echo $r2['equipmentname']; ?>" readonly>
+            Quantity:<input type="number" class="form-control" value="<?PHP echo $r['quantity']; ?>" name="qty" readonly>
             <br>
-            Borrow Date:<input type="text" name="dateborrow" value="<?PHP echo $r['date_borrow']; ?>" readonly>
+            Borrow Date:<input type="text" class="form-control" name="dateborrow" value="<?PHP echo $r['date_borrow']; ?>" readonly>
             <br>
-            Return Date:<input type="text" name="datereturn" value="<?PHP echo $r['date_return']; ?>" readonly>
+            Return Date:<input type="text" class="form-control" name="datereturn" value="<?PHP echo $r['date_return']; ?>" readonly>
             <br>
-            Purpose of Booking:<input type="text" maxlength="255" name="note" style="width:20% ; height:100px;" value="<?PHP echo $r['note']; ?>" readonly>
+            Purpose of Booking:<input type="text" maxlength="255" class="form-control" name="note" style="width:20% ; height:100px;" value="<?PHP echo $r['note']; ?>" readonly>
             <br>
-            Rejection Note:<input type="text" maxlength="255" name="reject" style="width:30% ; height:100px;" placeholder="If you reject this booking application,please insert why">
+            Rejection Note:<input type="text" maxlength="255" class="form-control" name="reject" style="width:30% ; height:100px;" placeholder="If you reject this booking application,please insert why">
             <br><br>
-            <select name="status" style="margin-right:5px; padding-right:50px;">
+            <select name="status" class="form-control" style="margin-right:5px; padding-right:50px;">
                 <option value=1>Accept </option>
                 <option value=2>Decline</option>
             </select>
-            <button type="submit" name="book" <?php echo $bookingId; ?>>Verify</button>
+            <br>
+            <button type="submit" class="btn btn-primary" name="book" <?php echo $bookingId; ?>>Verify</button>
     </form>
     </td>
     </tr>

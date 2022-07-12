@@ -3,7 +3,7 @@ include('../include/dbconn.php');
 include("../session.php");
 session_start();
 //navbar
-include('../include/navbarUser.php');
+include('../include/newnavbarUser.php');
 $username = $_SESSION['username'];
 $q = "select * from user where username ='$username' ";
 $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
