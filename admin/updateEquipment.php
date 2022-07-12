@@ -3,7 +3,7 @@ include('../include/dbconn.php');
 include("../session.php");
 session_start();
 //navbar
-include('../include/navbarAdmin.php');
+include('../include/newnavbar.php');
 $id = $_GET['id'];
 $q = "select * from equipment where equipmentid=$id";
 $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));

@@ -10,7 +10,7 @@ if (!isset($_SESSION['username'])) {
 ?>
 <?php
 //navbar
-include('../include/navbarAdmin.php')
+include('../include/newnavbar.php')
 ?>
 <!-- partial -->
 <div class="main">

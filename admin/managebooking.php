@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
     header('Location: ../login');
 }
 
-include("../include/navbarAdmin.php");
+include("../include/newnavbar.php");
 ?>
 
 <head>

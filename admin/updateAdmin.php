@@ -3,7 +3,7 @@ include('../include/dbconn.php');
 include("../session.php");
 session_start();
 //navbar
-include('../include/navbarAdmin.php');
+include('../include/newnavbar.php');
 $username = $_SESSION['username'];
 $q = "select * from user where username ='$username' ";
 $res = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
@@ -29,12 +29,12 @@ $r = mysqli_fetch_assoc($res);
         </tr>
         <tr>
             <td>Gender:</td>
-            <td><input type="text" name="Gender" value="<?php 
-            if($r['gender']==1){
-                echo "Male";
-            }else
-                echo "Female";
-            ?>" readonly></td>
+            <td><input type="text" name="Gender" value="<?php
+                                                        if ($r['gender'] == 1) {
+                                                            echo "Male";
+                                                        } else
+                                                            echo "Female";
+                                                        ?>" readonly></td>
         </tr>
         <tr>
             <td>Phone Number: </td>
@@ -52,6 +52,6 @@ $r = mysqli_fetch_assoc($res);
     </table>
     <button type="submit" name="updatebtn">Update Button</button>
 </form>
-<?php
+<?php include('../include/script.php') ?>
 
-?>
+<script></script>

@@ -15,7 +15,7 @@
 <body>
     <!-- partial:index.partial.html -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">E-Sukan Equipment Booking System</a>
+        <a class="navbar-brand navbar-logo" href="#">UITM:SBS</a>
         <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
         </button>
@@ -26,24 +26,30 @@
                     <div class="right"></div>
                 </div>
                 <li class="nav-item  active">
-                    <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a class="nav-link" href="./index.php"></i>Dashboard</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="./updateAdmin.php"></i>Manage Admin</a>
+                </li>
+                <li class=" nav-item">
+                    <a class="nav-link" href="./viewUser.php"></i>View User</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                    <a class="nav-link" href="../admin/managebooking.php"></i>Manage Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                    <a class="nav-link" href="./viewEquipment.php"></i>View Equipment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                    <a class="nav-link" href="searchEquipment.php">Search Equipment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+                    <a href="../admin/addEquipment.php"></i>Add Equipment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                    <a href="../logout.php"></i>Logout</a>
                 </li>
             </ul>
         </div>
     </nav>
+    <?php include('../include/script.php') ?>
     <!-- partial -->
