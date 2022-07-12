@@ -54,8 +54,8 @@ include("../include/newnavbar.php");
             <td>&nbsp;<?php echo ucwords(strtolower($row['date_return'])); ?></td>
             <td>&nbsp;<?php echo ucwords(strtolower($row['quantity'])); ?></td>
             </td>
-            <td width="7%" align="center"><a class="one" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
-            <td width="3%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
+            <td width="7%" align="center"><a class="btn btn-success" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
+            <td width="3%" align="center"><a class="btn btn-danger " onclick='javascript:confirmationDelete($(this));return false;' href=" deleteBooking.php?id=<?php echo $row['booking_id']; ?>">Delete</a></td>
             </tr>
         <?php
             $color = "2";
@@ -70,8 +70,8 @@ include("../include/newnavbar.php");
             <td>&nbsp;<?php echo ucwords(strtolower($row['date_return'])); ?></td>
             <td>&nbsp;<?php echo ucwords(strtolower($row['quantity'])); ?></td>
             </td>
-            <td width="7%" align="center"><a class="one" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
-            <td width="3%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>" style="color:red ;">Delete</a></td>
+            <td width="7%" align="center"><a class="btn btn-success" href="verifyBooking.php?id=<?php echo $row['booking_id']; ?>">Detail</a></td>
+            <td width="3%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteBooking.php?id=<?php echo $row['booking_id']; ?>">Delete</a></td>
             </tr>
     <?php
             $color = "1";

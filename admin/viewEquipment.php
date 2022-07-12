@@ -32,7 +32,7 @@ include('../include/newnavbar.php')
         <th width="4%">No
         <th width="17%">Equipment ID</th>
         <th width="23%">Equipment Name</th>
-        <th width="9%">Equipment Stock</th>
+        <th width="15%">Equipment Stock</th>
         <th width="25%">Equipment Desc</th>
         <th align="center" colspan="2" style="text-align:center ;">Action</th>
       </thead>
@@ -53,8 +53,8 @@ include('../include/newnavbar.php')
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentstock'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
-        <td width="5%" align="center"><a class="one" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
-        <td width="5%" align="center"><a class="one" href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>" style="color:red ;">Delete</a></td>
+        <td width="5%" align="center"><a class="btn btn-primary" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>">Delete</a></td>
         </tr>
       <?php
         $color = "2";
@@ -68,8 +68,8 @@ include('../include/newnavbar.php')
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentstock'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
-        <td width="5%" align="center"><a class="one" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
-        <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>" style="color:red ;">Delete</a></td>
+        <td width="5%" align="center"><a class="btn btn-primary" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>">Delete</a></td>
         </tr>
     <?php
         $color = "1";

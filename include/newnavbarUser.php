@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - bootstrap 4 navbar</title>
+    <title>ESBS</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css'>
@@ -15,7 +15,7 @@
 <body>
     <!-- partial:index.partial.html -->
     <nav class="navbar navbar-expand-custom navbar-mainbg">
-        <a class="navbar-brand navbar-logo" href="#">UITM: Sport Booking System (SBS)</a>
+        <a class="navbar-brand navbar-logo" href="index.php"><i class="fas fa-baseball"></i>UITM:Electronic Sport Booking System (ESBS)</a>
         <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars text-white"></i>
         </button>
@@ -37,10 +37,7 @@
                     <a class="nav-link" href="../user/bookEquipment.php"></i>Book Equipment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../admin/searchEquipment.php">Search Equipment</a>
-                </li>
-                <li class="nav-item">
-                    <a href="../admin/addEquipment.php"></i>Add Equipment</a>
+                    <a class="nav-link" href="../user/searchEquipment.php">Search Equipment</a>
                 </li>
                 <li class="nav-item">
                     <a href="../logout.php"></i>Logout</a>

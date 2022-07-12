@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
   header('Location: ../login');
 }
 
-include("../include/navbarUser.php");
+include("../include/newnavbarUser.php");
 ?>
 
 <head>
@@ -15,6 +15,7 @@ include("../include/navbarUser.php");
 </head>
 
 <body>
+  <br>
   <?php
   $query = "SELECT * FROM equipment  WHERE equipmentstock > '1' ORDER BY equipmentid";
   $result = mysqli_query($dbconn, $query) or die("Error: " . mysqli_error($dbconn));
@@ -22,15 +23,20 @@ include("../include/navbarUser.php");
   ?>
   <tr align="left" bgcolor="#f2f2f2">
     <td>
-      <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" style="border: radius 2px;">
-        <tr align="left" bgcolor="#272c33" style="color:white ;">
-          <th width="4%">No
+      <div style="margin-left:5%; margin-right:5%;">
+        <h4>Book Equipment</h4>
+        <br>
+        <table class="table table-striped table-hover">
+          <thead class="table-light" style="width:100% ;">
+            <th width="4%">No
     </td>
     <th width="10%">Equipment ID</th>
     <th width="10%">Equipment Name</th>
-    <th width="5%">Equipment Stock</th>
+    <th width="8%">Equipment Stock</th>
     <th width="25%">Equipment Desc</th>
     <th width="9%" align="center" style="text-align:center;">Action</th>
+    </thead>
+
   </tr>
 
   <?php
@@ -49,12 +55,12 @@ include("../include/navbarUser.php");
       <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
       </td>
       <td colspan="1" width="5%" align="center">
-        <form action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
-          <select name="bookType" style="margin-right:5px;">
+        <form style="display:flex ;" action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
+          <select class="form-control" name="bookType" style="margin-right:5px;">
             <option value=1>On The Go </option>
             <option value=2>Durational</option>
           </select>
-          <button type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
+          <button class="btn btn-primary" type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
         </form>
       </td>
       </tr>
@@ -71,12 +77,12 @@ include("../include/navbarUser.php");
       </td>
 
       <td colspan="1" width="5%" align="center">
-        <form action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
-          <select name="bookType" style="margin-right:5px;">
+        <form style="display:flex ;" action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
+          <select class="form-control" name="bookType" style="margin-right:5px;">
             <option value=1>On The Go </option>
             <option value=2>Durational</option>
           </select>
-          <button type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
+          <button class="btn btn-primary" type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
         </form>
       </td>
       </tr>
@@ -97,6 +103,8 @@ include("../include/navbarUser.php");
     <td>&nbsp;</td>
   </tr>
   </table>
+  </div>
+
   </div>
   </div>
 </body>

@@ -24,7 +24,7 @@ if (isset($_POST['search'])) {
   }
 </style>
 <?php
-include('./searchEquipment.php');
+include('../user/searchEquipment.php');
 ?>
 <?php
 $query = "select * from equipment where equipmentname like '%$searchname%' ";
@@ -37,16 +37,22 @@ $numrow = mysqli_num_rows($result);
     <br>
     <br>
     <br><br><br><br><br>
-    <td>
-      <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" id="tableSearch">
-        <tr align="left" bgcolor="#272c33" style="color:white ;">
-          <th width="4%">No
-    </td>
-    <th width="17%">Equipment ID</th>
-    <th width="23%">Equipment Name</th>
-    <th width="9%">Equipment Stock</th>
-    <th width="25%">Equipment Desc</th>
-    <th width="5%">Book</th>
+    <tr align="left" bgcolor="#f2f2f2">
+      <td>
+        <div style="margin-left:5%; margin-right:5%;">
+          <h4>Book Equipment</h4>
+          <br>
+          <table class="table table-striped table-hover">
+            <thead class="table-light" style="width:100% ;">
+              <th width="4%">No
+      </td>
+      <th width="10%">Equipment ID</th>
+      <th width="10%">Equipment Name</th>
+      <th width="8%">Equipment Stock</th>
+      <th width="25%">Equipment Desc</th>
+      <th width="9%" align="center" style="text-align:center;">Action</th>
+      </thead>
+
     </tr>
 
     <?php
@@ -65,12 +71,12 @@ $numrow = mysqli_num_rows($result);
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
         <td colspan="1" width="5%" align="center">
-          <form action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
-            <select name="bookType" style="margin-right:5px;">
+          <form style="display:flex ;" action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
+            <select class="form-control" name="bookType" style="margin-right:5px;">
               <option value=1>On The Go </option>
               <option value=2>Durational</option>
             </select>
-            <button type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
+            <button class="btn btn-primary" type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
           </form>
         </td>
         </tr>
@@ -85,13 +91,14 @@ $numrow = mysqli_num_rows($result);
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentstock'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
+
         <td colspan="1" width="5%" align="center">
-          <form action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
-            <select name="bookType" style="margin-right:5px;">
+          <form style="display:flex ;" action="booking.php?id=<?php echo $row['equipmentid']; ?>" method="post">
+            <select class="form-control" name="bookType" style="margin-right:5px;">
               <option value=1>On The Go </option>
               <option value=2>Durational</option>
             </select>
-            <button type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
+            <button class="btn btn-primary" type="submit" name="book" <?php echo $row['equipmentid']; ?>>submit</button>
           </form>
         </td>
         </tr>

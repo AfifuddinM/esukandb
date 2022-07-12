@@ -18,4 +18,3 @@ window.location.href='index.php';
 
 //echo "<h1>data deleted saved.  <a href=index.php>Dashboard</a></h1>";
 mysqli_close($dbconn);
-?>

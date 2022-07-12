@@ -37,16 +37,19 @@ $numrow = mysqli_num_rows($result);
     <br>
     <br>
     <br><br><br><br><br>
-    <td>
-      <table class="table table-striped table-hover">
-    </td>
-    <thead class="table-light" style="width:100% ;">
-      <th width="4%">No</td>
-      <th width="17%">Equipment ID</th>
-      <th width="23%">Equipment Name</th>
-      <th width="9%">Equipment Stock</th>
-      <th width="25%">Equipment Desc</th>
-    </thead>
+    <tr align="left" bgcolor="#f2f2f2">
+      <td>
+      <td>
+        <table class="table table-striped table-hover">
+      </td>
+      <thead class="table-light" style="width:100% ;">
+        <th width="4%">No
+        <th width="17%">Equipment ID</th>
+        <th width="23%">Equipment Name</th>
+        <th width="15%">Equipment Stock</th>
+        <th width="25%">Equipment Desc</th>
+        <th align="center" colspan="2" style="text-align:center ;">Action</th>
+      </thead>
     </tr>
 
     <?php
@@ -64,6 +67,8 @@ $numrow = mysqli_num_rows($result);
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentstock'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
+        <td width="5%" align="center"><a class="btn btn-primary" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>">Delete</a></td>
         </tr>
       <?php
         $color = "2";
@@ -71,11 +76,14 @@ $numrow = mysqli_num_rows($result);
         echo "<tr bgcolor='#FFFFFF'>"
       ?>
         <td>&nbsp;<?php echo $a + 1; ?></td>
-        <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentid'])); ?></td>
+        <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentid'])); ?>
+        </td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentname'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentstock'])); ?></td>
         <td>&nbsp;<?php echo ucwords(strtolower($row['equipmentdesc'])); ?></td>
         </td>
+        <td width="5%" align="center"><a class="btn btn-primary" href="updateEquipment.php?id=<?php echo $row['equipmentid']; ?>">Update</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteEquipment.php?id=<?php echo $row['equipmentid']; ?>">Delete</a></td>
         </tr>
     <?php
         $color = "1";
@@ -98,5 +106,12 @@ $numrow = mysqli_num_rows($result);
   </div>
 </div>
 </body>
+<script>
+  function confirmationDelete(anchor) {
+    var conf = confirm('Are you sure want to delete this record?');
+    if (conf)
+      window.location = anchor.attr("href");
+  }
+</script>
 
 </html>

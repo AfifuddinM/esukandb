@@ -36,30 +36,30 @@ $countBookingp = $rbp['total'];
 <div class="main" style="margin-left: 5%; margin-right:5%">
   <br>
   <br>
-  <h3 class="display-4">Welcome <?php echo $_SESSION['username']; ?></h3>
+  <h3 class="display-4"><i class="fas fa-door-open"></i> Welcome <?php echo $_SESSION['username']; ?> </h3>
   <br>
   <div style="display:flex; justify-content:space-between;">
     <div class="card text-white bg-primary mb-3" style="width: 18rem; height:196;">
       <div class="card-body">
-        <h5 class="card-title">Users: <?php echo $countUser; ?></h5>
+        <h5 class="card-title"><i class="fas fa-users"></i> Users: <?php echo $countUser; ?></h5>
 
       </div>
     </div>
     <div class="card text-white bg-success mb-3" style="width: 18rem; height:196;">
       <div class="card-body">
-        <h5 class="card-title">Equipments: <?php echo $countEquipment; ?></h5>
+        <h5 class="card-title"><i class="fas fa-basketball-ball"></i> Equipments: <?php echo $countEquipment; ?></h5>
       </div>
     </div>
 
     <div class="card text-white bg-danger mb-3" style="width: 18rem; height:196;">
       <div class="card-body">
-        <h5 class="card-title">Bookings: <?php echo $countBooking; ?></h5>
+        <h5 class="card-title"><i class="fas fa-book"></i> Bookings: <?php echo $countBooking; ?></h5>
 
       </div>
     </div>
     <div class="card text-white bg-warning mb-3" style="width: 18rem; height:196;">
       <div class="card-body">
-        <h5 class="card-title">Pending Bookings: <?php echo $countBookingp; ?></h5>
+        <h5 class="card-title"><i class="fas fa-exclamation"></i> Pending Bookings: <?php echo $countBookingp; ?></h5>
 
       </div>
     </div>
@@ -173,7 +173,7 @@ $countBookingp = $rbp['total'];
   <!-- For second type of booking,durational-->
   <p class="lead">Durational Booking Records</p>
   <?php
-  $q1 = "select * from booking where booking_type = 2 and status != 2";
+  $q1 = "select * from booking where booking_type = 2 limit 5";
   $r1 = mysqli_query($dbconn, $q1) or die("Error: " . mysqli_error($dbconn));
   $numrow = mysqli_num_rows($r1);
   ?>
@@ -284,7 +284,7 @@ $countBookingp = $rbp['total'];
   </table>
   <p class="lead">Pending Bookings</p>
   <?php
-  $q2 = "select * from booking where status = 3";
+  $q2 = "select * from booking where status = 3 limit 5";
   $r2 = mysqli_query($dbconn, $q2) or die("Error: " . mysqli_error($dbconn));
   $numrow = mysqli_num_rows($r2);
   ?>
@@ -326,8 +326,10 @@ $countBookingp = $rbp['total'];
         <?PHP
         if ($row['status'] == 1) {
           echo "accepted";
-        } else {
+        } else if ($row['status'] == 2) {
           echo "declined";
+        } else {
+          echo "pending";
         }
         ?>
       </td>
@@ -349,8 +351,10 @@ $countBookingp = $rbp['total'];
         <?PHP
         if ($row['status'] == 1) {
           echo "accepted";
-        } else {
+        } else if ($row['status'] == 2) {
           echo "declined";
+        } else {
+          echo "pending";
         }
         ?>
       </td>

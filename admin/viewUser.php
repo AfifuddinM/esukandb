@@ -72,7 +72,7 @@ include("../include/newnavbar.php")
         <td>&nbsp;<?php echo $row['telephone']; ?></td>
         <td>&nbsp;<?php echo $row['email']; ?></td>
         <td><?php echo ucwords(strtolower($row['address'])); ?></td>
-        <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>" style="color:red ;">Delete</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger " onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>">Delete</a></td>
         </tr>
       <?php
         $color = "2";
@@ -91,7 +91,7 @@ include("../include/newnavbar.php")
         <td>&nbsp;<?php echo $row['telephone']; ?></td>
         <td>&nbsp;<?php echo $row['email']; ?></td>
         <td><?php echo ucwords(strtolower($row['address'])); ?></td>
-        <td width="5%" align="center"><a class="one" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>" style="color:red ;">Delete</a></td>
+        <td width="5%" align="center"><a class="btn btn-danger" onclick='javascript:confirmationDelete($(this));return false;' href="deleteUser.php?id=<?php echo $row['user_id']; ?>">Delete</a></td>
         </tr>
     <?php
         $color = "1";
