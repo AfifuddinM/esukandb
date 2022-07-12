@@ -67,7 +67,7 @@ $countBookingp = $rbp['total'];
   </div>
   <br>
   <?PHP
-  $q = "select * from booking where booking_type = 1 and status != 2";
+  $q = "select * from booking where booking_type = 1 and status != 2 limit 5";
   $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
   $numrow = mysqli_num_rows($r);
   ?>
@@ -166,7 +166,10 @@ $countBookingp = $rbp['total'];
     <td>&nbsp;</td>
   </tr>
   </table>
-
+  <br>
+  <a href="./otg.php" class="btn btn-outline-primary">More Detail</a>
+  <br>
+  <br>
   <!-- For second type of booking,durational-->
   <p class="lead">Durational Booking Records</p>
   <?php
@@ -270,15 +273,18 @@ $countBookingp = $rbp['total'];
   }
   ?>
   </table>
+  <a href="./durationaldata.php" class="btn btn-outline-primary">More Detail</a>
+  <br>
+  <br>
   </td>
   </tr>
   <tr>
     <td>&nbsp;</td>
   </tr>
   </table>
-  <p class="lead">Rejected Booking Records</p>
+  <p class="lead">Pending Bookings</p>
   <?php
-  $q2 = "select * from booking where status = 2";
+  $q2 = "select * from booking where status = 3";
   $r2 = mysqli_query($dbconn, $q2) or die("Error: " . mysqli_error($dbconn));
   $numrow = mysqli_num_rows($r2);
   ?>
@@ -360,6 +366,10 @@ $countBookingp = $rbp['total'];
   }
   ?>
   </table>
+  <br>
+  <a href="./managebooking.php" class="btn btn-outline-primary">More Detail</a>
+  <br>
+  <br>
   </td>
   </tr>
   <tr>
