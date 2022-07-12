@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 }
 $adminname = $_SESSION['username'];
 $bookingId = $_GET['id'];
-include("../include/navbarAdmin.php");
+include("../include/newnavbar.php");
 ?>
 
 <head>

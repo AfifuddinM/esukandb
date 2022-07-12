@@ -13,8 +13,9 @@ include("../include/newnavbar.php");
 <head>
     <title>Manage Booking</title>
 </head>
-
-<div>
+<br>
+<div class="main" style="margin-left:5% ; margin-right:5%;">
+    <h3>Manage Booking Application</h3>
     <?php
     $q1 = "select * from booking where booking_type = 2 and status = 3 and return_status=0";
     $r1 = mysqli_query($dbconn, $q1) or die("Error: " . mysqli_error($dbconn));
@@ -22,17 +23,19 @@ include("../include/newnavbar.php");
     ?>
     <tr align="left" bgcolor="#f2f2f2">
         <td>
-            <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" style="border: radius 2px;">
-                <tr align="left" bgcolor="#272c33" style="color:white ;">
-                    <th width="2%">No
+        <td>
+            <table class="table table-striped table-hover" style="width:100% ;">
         </td>
-        <th width="5%">Booking ID</th>
-        <th width="5%">User ID</th>
-        <th width="5%">Equipment ID</th>
-        <th width="5%">Date Borrow</th>
-        <th width="5%">Date Return</th>
-        <th width="5%">Quantity</th>
-        <th width="5%" align="center" style="text-align:center;" colspan="2">Action</th>
+        <thead class="table-light" style="width:100% ;">
+            <th width="2%">No
+            <th width="5%">Booking ID</th>
+            <th width="5%">User ID</th>
+            <th width="5%">Equipment ID</th>
+            <th width="5%">Date Borrow</th>
+            <th width="5%">Date Return</th>
+            <th width="5%">Quantity</th>
+            <th width="5%" align="center" style="text-align:center;" colspan="2">Action</th>
+        </thead>
     </tr>
     <?php
     $color = "1";

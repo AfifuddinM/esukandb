@@ -26,7 +26,7 @@ include("../include/newnavbar.php");
 
     #searchTerm {
       width: 100%;
-      border: 3px solid #272c33;
+      border: 3px solid #673AB7;
       border-right: none;
       padding: 5px;
       height: 36px;
@@ -42,8 +42,8 @@ include("../include/newnavbar.php");
     #searchButton {
       width: 40px;
       height: 36px;
-      border: 1px solid #272c33;
-      background: #272c33;
+      border: 1px solid #673AB7;
+      background: #673AB7;
       text-align: center;
       color: #fff;
       border-radius: 0 5px 5px 0;

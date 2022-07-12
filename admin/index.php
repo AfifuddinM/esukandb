@@ -10,18 +10,68 @@ if (!isset($_SESSION['username'])) {
 ?>
 
 <?php
-include('../include/newnavbar.php')
+include('../include/newnavbar.php');
+
+$query = "Select count(user_id) as total from user";
+$rCountQ = mysqli_query($dbconn, $query);
+$ru = mysqli_fetch_assoc($rCountQ);
+$countUser = $ru['total'];
+
+$query1 = "Select count(equipmentid) as total from equipment";
+$rCount = mysqli_query($dbconn, $query1);
+$re = mysqli_fetch_assoc($rCount);
+$countEquipment = $re['total'];
+
+$query2 = "Select count(booking_id) as total from booking";
+$rCountb = mysqli_query($dbconn, $query2);
+$rb = mysqli_fetch_assoc($rCountb);
+$countBooking = $rb['total'];
+
+$query3 = "Select count(booking_id) as total from booking where status = 3";
+$rCountbp = mysqli_query($dbconn, $query3);
+$rbp = mysqli_fetch_assoc($rCountbp);
+$countBookingp = $rbp['total'];
 ?>
 <!-- partial -->
 <div class="main" style="margin-left: 5%; margin-right:5%">
   <br>
+  <br>
   <h3 class="display-4">Welcome <?php echo $_SESSION['username']; ?></h3>
+  <br>
+  <div style="display:flex; justify-content:space-between;">
+    <div class="card text-white bg-primary mb-3" style="width: 18rem; height:196;">
+      <div class="card-body">
+        <h5 class="card-title">Users: <?php echo $countUser; ?></h5>
+
+      </div>
+    </div>
+    <div class="card text-white bg-success mb-3" style="width: 18rem; height:196;">
+      <div class="card-body">
+        <h5 class="card-title">Equipments: <?php echo $countEquipment; ?></h5>
+      </div>
+    </div>
+
+    <div class="card text-white bg-danger mb-3" style="width: 18rem; height:196;">
+      <div class="card-body">
+        <h5 class="card-title">Bookings: <?php echo $countBooking; ?></h5>
+
+      </div>
+    </div>
+    <div class="card text-white bg-warning mb-3" style="width: 18rem; height:196;">
+      <div class="card-body">
+        <h5 class="card-title">Pending Bookings: <?php echo $countBookingp; ?></h5>
+
+      </div>
+    </div>
+
+  </div>
+  <br>
   <?PHP
   $q = "select * from booking where booking_type = 1 and status != 2";
   $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
   $numrow = mysqli_num_rows($r);
   ?>
-  <p>On The Go Booking Records</p>
+  <p class="lead">On The Go Booking Records</p>
   <td>
     <table class="table table-striped table-hover">
   </td>
@@ -118,7 +168,7 @@ include('../include/newnavbar.php')
   </table>
 
   <!-- For second type of booking,durational-->
-  <p>Durational Booking Records</p>
+  <p class="lead">Durational Booking Records</p>
   <?php
   $q1 = "select * from booking where booking_type = 2 and status != 2";
   $r1 = mysqli_query($dbconn, $q1) or die("Error: " . mysqli_error($dbconn));
@@ -226,7 +276,7 @@ include('../include/newnavbar.php')
     <td>&nbsp;</td>
   </tr>
   </table>
-  <p>Rejected Booking Records</p>
+  <p class="lead">Rejected Booking Records</p>
   <?php
   $q2 = "select * from booking where status = 2";
   $r2 = mysqli_query($dbconn, $q2) or die("Error: " . mysqli_error($dbconn));

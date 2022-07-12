@@ -14,7 +14,6 @@ include('../include/newnavbar.php')
 ?>
 <!-- partial -->
 <div class="main">
-  <h1> List Of Equipments Available</h1>
 
   <div class="container">
     <br>
@@ -26,15 +25,17 @@ include('../include/newnavbar.php')
     ?>
     <tr align="left" bgcolor="#f2f2f2">
       <td>
-        <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0" style="border: radius 2px;">
-          <tr align="left" bgcolor="#272c33" style="color:white ;">
-            <th width="4%">No
+      <td>
+        <table class="table table-striped table-hover">
       </td>
-      <th width="17%">Equipment ID</th>
-      <th width="23%">Equipment Name</th>
-      <th width="9%">Equipment Stock</th>
-      <th width="25%">Equipment Desc</th>
-      <th align="center" colspan="2" style="text-align:center ;">Action</th>
+      <thead class="table-light" style="width:100% ;">
+        <th width="4%">No
+        <th width="17%">Equipment ID</th>
+        <th width="23%">Equipment Name</th>
+        <th width="9%">Equipment Stock</th>
+        <th width="25%">Equipment Desc</th>
+        <th align="center" colspan="2" style="text-align:center ;">Action</th>
+      </thead>
     </tr>
 
     <?php
