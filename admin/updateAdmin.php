@@ -13,7 +13,7 @@ $r = mysqli_fetch_assoc($res);
 <br>
 
 <div class="main" style="margin-left:5% ; margin-right:5%;">
-    <h3 class="display-4">update Profile</h3>
+    <h3 class="display-4">Update Profile</h3>
     <form action="updateAdminProcess.php" method="POST">
         <table class="table " width=98% style="margin-top:5% ;">
             <tr>

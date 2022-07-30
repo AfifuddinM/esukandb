@@ -37,9 +37,6 @@
                     <a class="nav-link" href="../user/bookEquipment.php"></i>Book Equipment</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../user/searchEquipment.php">Search Equipment</a>
-                </li>
-                <li class="nav-item">
                     <a href="../logout.php"></i>Logout</a>
                 </li>
             </ul>

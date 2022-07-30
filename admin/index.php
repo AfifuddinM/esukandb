@@ -36,7 +36,7 @@ $countBookingp = $rbp['total'];
 <div class="main" style="margin-left: 5%; margin-right:5%">
   <br>
   <br>
-  <h3 class="display-4"><i class="fas fa-door-open"></i> Welcome <?php echo $_SESSION['username']; ?> </h3>
+  <h3 class="display-4"><i class="fas fa-door-open" style="color:#673AB7 ;"></i> Welcome <?php echo $_SESSION['username']; ?> </h3>
   <br>
   <div style="display:flex; justify-content:space-between;">
     <div class="card text-white bg-primary mb-3" style="width: 18rem; height:196;">

@@ -12,7 +12,7 @@ if (!isset($_SESSION['username'])) {
 <!-- partial -->
 <div class="main" style="margin-left: 5%; margin-right: 5%;">
   <br>
-  <h3><i class="fas fa-door-open"></i> Welcome <?php echo $username; ?></h3>
+  <h3><i class="fas fa-door-open" style="color:#673AB7 "></i> Welcome <?php echo $username; ?></h3>
   <br>
   <?php
   $q1 = "select * from user where username = '$username'";
@@ -167,6 +167,7 @@ if (!isset($_SESSION['username'])) {
         Purpose of Booking:<input type="text" maxlength="255" class="form-control" name="note" style="width:20% ; height:100px;" value="' . $note . '" readonly>';
 
       echo '<br><button class="btn btn-warning">Your Booking Application Is Still Processing Please Wait:</button>
+      <a class="btn btn-danger" onclick="javascript:confirmationDelete($(this));return false;" href="deleteUserBooking.php?id='.$bookingId.'">Delete</a>
         </div>';
     }
   } else {
@@ -182,10 +183,16 @@ if (!isset($_SESSION['username'])) {
   }
   ?>
 </div>
-
-
 </div>
+<script>
+    function confirmationDelete(anchor) {
+        var conf = confirm('Are you sure want to delete this record?');
+        if (conf)
+            window.location = anchor.attr("href");
+    }
+</script>
 </body>
+
 </div>
 
 

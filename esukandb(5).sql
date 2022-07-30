@@ -1,15 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.3.0-dev+20220709.4e08d2933b
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 24, 2022 at 08:27 PM
+-- Host: localhost
+-- Generation Time: Jul 24, 2022 at 04:18 PM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.5
+-- PHP Version: 8.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `esukandb`
@@ -71,8 +77,7 @@ INSERT INTO `booking` (`booking_id`, `booking_type`, `booking_date`, `user_id`, 
 (46, 2, NULL, '30', '2022-07-13 15:41:00.000000', '2022-07-13 15:41:00.000000', 1, '', 1, 2, 9, 'karisma', 1, 1, 1),
 (47, 1, '2022-07-13 16:11:00.000000', '31', NULL, NULL, 1, '', NULL, 2, 1, 'i want to', 1, 1, 1),
 (48, 2, NULL, '31', '2022-07-20 16:13:00.000000', '2022-07-13 16:12:00.000000', 2, 'not credible', 1, 3, 2, 'karisma', 1, 0, 1),
-(49, 1, '2022-07-13 16:17:00.000000', '20', NULL, NULL, 1, '', NULL, 2, 1, 'main bola', 1, 1, 1),
-(53, 2, NULL, '20', '2022-07-28 08:21:00.000000', '2022-07-05 02:21:00.000000', 3, '', NULL, 3, 2, 'i want to book karisma', 1, 0, 0);
+(49, 1, '2022-07-13 16:17:00.000000', '20', NULL, NULL, 1, '', NULL, 2, 1, 'main bola', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -209,7 +214,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `booking_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `equipment`
@@ -223,3 +228,10 @@ ALTER TABLE `equipment`
 ALTER TABLE `user`
   MODIFY `user_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
